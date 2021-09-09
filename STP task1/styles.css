@@ -4,9 +4,9 @@
 }
 body{
     background: url('./4gqRdbk.jpg');
-    box-sizing: border-box;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     min-height: 100vh;
     margin: 0;
     font-family: 'Bebas Neue';
@@ -16,42 +16,6 @@ body{
     width: 100vw;
     display: flex;
     flex: auto;
-}
-
-.container{
-    margin: 0px auto;
-    padding: 0px 20px;
-}
-
-@media (max-width:300px) {
-    .container{
-        max-width: 290px;
-    }
-   
-}
-@media (max-width:600px) and (min-width:300px) {
-    .container{
-        min-width: 270px;
-        max-width: 570px;
-    }
-}
-@media (max-width:900px) and (min-width:600px) {
-    .container{
-        min-width: 570px;
-        max-width: 870px;
-    }
-}
-@media (max-width:1200px) and (min-width:900px) {
-    .container{
-        min-width: 870px;
-        max-width: 1170px;
-    }
-}
-@media (min-width:1200px) {
-    .container{
-        min-width: 1000px;
-        max-width: 1170px;
-    }
 }
 
 .hidden{
@@ -86,13 +50,12 @@ body{
     text-align: center;
     margin: 40px auto;
     font-family: 'Bebas Neue';
-    font-size: 1.5rem;
 }
 
 .loginform{
-    display: flex;
+   /* display: flex;
     flex: auto;
-    margin: auto;
+    margin: auto;*/
 }
 .label{
     font-size: 20px;
@@ -118,10 +81,13 @@ input{
     color: white;
     font-family: 'Bebas Neue';
     font-size: 1.3rem;
-    margin-top: 30px;
-    padding: 15px 10px;
+    padding: 10px;
     width: 100%;
 }
+[role="button"]:hover,button:hover{
+    filter: opacity(0.8);
+}
+
 input[type="checkbox"]{
     display: inline-block;
     margin: 0px !important;
@@ -136,13 +102,9 @@ input[type="checkbox"]{
     margin: auto;
 }
 
-
-@media (min-width:500px) {
-    .forminput{
-        min-width: 400px;
-    }    
+.forminput{
+    width: 100%;
 }
-
 
 .margin-top5{
     margin-top: 20px;
@@ -157,7 +119,6 @@ input[role="button"]{
 }
 
 .panel{
-    margin-top: 100px;
     border-radius: 7px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     background-color: white;
@@ -168,11 +129,7 @@ input[role="button"]{
     flex-direction: column;
     margin-bottom: 50px;
 }
-@media (min-width:850px) {
-    .panel{
-        min-width: 800px;
-}    
-}
+
 th{
     font-weight: lighter;
     padding: 10px 15px;
@@ -233,3 +190,9 @@ tbody{
     align-items: center;
     justify-content: center;
 }
+
+a{
+    color: #c84c8c;
+}
+
+
