@@ -1,0 +1,235 @@
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('./BebasNeue-Regular.ttf');
+}
+body{
+    background: url('./4gqRdbk.jpg');
+    box-sizing: border-box;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Bebas Neue';
+}
+
+.fluid-container{
+    width: 100vw;
+    display: flex;
+    flex: auto;
+}
+
+.container{
+    margin: 0px auto;
+    padding: 0px 20px;
+}
+
+@media (max-width:300px) {
+    .container{
+        max-width: 290px;
+    }
+   
+}
+@media (max-width:600px) and (min-width:300px) {
+    .container{
+        min-width: 270px;
+        max-width: 570px;
+    }
+}
+@media (max-width:900px) and (min-width:600px) {
+    .container{
+        min-width: 570px;
+        max-width: 870px;
+    }
+}
+@media (max-width:1200px) and (min-width:900px) {
+    .container{
+        min-width: 870px;
+        max-width: 1170px;
+    }
+}
+@media (min-width:1200px) {
+    .container{
+        min-width: 1000px;
+        max-width: 1170px;
+    }
+}
+
+.hidden{
+    visibility: hidden;
+    display: none;
+}
+
+@media (min-width:610px) {
+    .loginpanel{
+        width: 500px;
+        margin-top: 100px !important;
+}    
+}
+
+
+.loginpanel{
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 7px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background-color: white;
+    color: black;
+    padding: 10px 20px 25px 20px;
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    margin-bottom: 50px;
+
+}
+
+.logintitle{
+    text-align: center;
+    margin: 40px auto;
+    font-family: 'Bebas Neue';
+    font-size: 1.5rem;
+}
+
+.loginform{
+    display: flex;
+    flex: auto;
+    margin: auto;
+}
+.label{
+    font-size: 20px;
+    font-weight: bolder;
+    font-family: 'Roboto', sans-serif;
+}
+h1,h2,h3,h4,h5,h6,p{
+    margin: 0px;
+}
+input{
+    background-color: #e8e4e4;
+    min-height: 20px;
+    border-radius: 3px;
+    border-color: transparent;
+    min-height: 40px;
+    display: block;
+    margin: 5px 0px 15px 0px;
+    font-size: 1.2rem;
+    padding: 3px 10px;
+}
+.loginbutton{
+    background-color: #c84c8c;
+    color: white;
+    font-family: 'Bebas Neue';
+    font-size: 1.3rem;
+    margin-top: 30px;
+    padding: 15px 10px;
+    width: 100%;
+}
+input[type="checkbox"]{
+    display: inline-block;
+    margin: 0px !important;
+    width: auto !important;
+}
+.checkboxcontainer{
+    display: flex;
+    align-items: center;
+}
+
+.signupsection{
+    margin: auto;
+}
+
+
+@media (min-width:500px) {
+    .forminput{
+        min-width: 400px;
+    }    
+}
+
+
+.margin-top5{
+    margin-top: 20px;
+}
+
+input:focus{
+    border-color: white !important  ;
+}
+
+input[role="button"]{
+    cursor: pointer;
+}
+
+.panel{
+    margin-top: 100px;
+    border-radius: 7px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background-color: white;
+    color: black;
+    padding: 0px;
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+@media (min-width:850px) {
+    .panel{
+        min-width: 800px;
+}    
+}
+th{
+    font-weight: lighter;
+    padding: 10px 15px;
+    text-align: left;
+    color:white;
+}
+
+td{
+    padding: 10px 15px;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+    font-weight: bolder;
+}
+tr{
+    border-collapse: separate;
+}
+tr:nth-child(even) {background: #e8e4e4;color: #c84c8c;}
+tr:nth-child(odd) {background: white}
+
+table{
+    border-collapse: collapse;
+    border-radius: 7px;
+    overflow: hidden;
+}
+tbody{
+    border-collapse: collapse;
+    border-radius: 7px;
+
+}
+
+.align-center{
+    text-align: center !important;
+}
+
+.imgfitstable{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+
+.zoom-on-hover:hover .imgfitstable{
+    transition:ease-in-out;
+    transition-duration: 0.5s;
+    width: 140px;
+    height: 140px;
+}
+.zoom-on-hover .imgfitstable{
+    transition:ease-in-out;
+    transition-duration: 0.5s;
+}
+.imageelementcontainer{
+    width: 130px;
+    height: 130px;
+    display: flex;
+    flex: auto;
+    align-items: center;
+    justify-content: center;
+}
