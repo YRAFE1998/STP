@@ -1,0 +1,37 @@
+body{
+    background-color: #FFFFFF;
+}
+
+#gameInfo{
+    color: black;
+    height: 10vh;
+}
+#gamePanel{
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
+    height: 90vh;
+    width: 100%;
+    position: relative;
+}
+
+.face{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+}
+#leftside{
+    background-color: #3c3c6c;
+}
+#rightside{
+    background-color:#5e0c0c;
+}
+.overlay{
+    height: 100%;
+    background-color: black;
+    filter: opacity(0.7);
+}
+
+
+
+
