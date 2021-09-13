@@ -7,7 +7,6 @@ body{
     height: 10vh;
 }
 #gamePanel{
-    background: url('./assets/USflag.png');
     background-size: cover;
     background-position: left;
     background-repeat: no-repeat;
@@ -22,10 +21,10 @@ body{
     height: 60px;
 }
 #leftside{
-    border-right: solid 3px #3c3c6c;
+    background-color: #3c3c6c;
 }
 #rightside{
-    border-left: solid 3px #3c3c6c;
+    background-color:#5e0c0c;
 }
 .overlay{
     height: 100%;

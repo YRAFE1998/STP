@@ -7,15 +7,15 @@ var player2;
 
 const faces = [
     {   
-        src:'./assets/faces/trumpface1.png',
+        src:'./assets/faces/face1.png',
         id:1
     },
     {
-        src:'./assets/faces/trumpface2.png',
+        src:'./assets/faces/face2.png',
         id:2
     },
     {
-        src:'./assets/faces/trumpface3.png',
+        src:'./assets/faces/face3.png',
         id:3
     }
     ]
@@ -34,14 +34,8 @@ class Location{
 
 
 class Player{
-    constructor(id,isMyturn,score){
-        this.id=id;
-        this.isMyturn=isMyturn;
+    constructor(score){
         this.score=score;
-    }
-    
-    switchturn(){
-        this.isMyturn=!this.isMyturn;
     }
     getScore(){
         return this.score;
@@ -72,10 +66,12 @@ class Player{
     }
 
     OnfaceClickhandler = (event) => {
-        if(event.target.id == this.mainface.id)
-            this.didChooseRight(false);
-        else
-            this.didChooseRight(true);    
+        if (event.target.tagName == 'IMG'){
+            if(event.target.id == this.mainface.id)
+                this.didChooseRight(false);
+            else
+                this.didChooseRight(true);  
+        }  
     }
 
     didChooseRight(b){
@@ -85,17 +81,6 @@ class Player{
 }
 
 
-function chooseMainFace(){
-    player1.chooseMainFace();
-    player2.chooseMainFace();
-
-}
-
-function distributeFaces(count){
-    player1.distributeFaces(count);
-    player2.distributeFaces(count);
-    
-}
 
 function getRandomNumber(max){
     return(Math.floor(((Math.random()*1000) %max) +1));
@@ -108,18 +93,25 @@ function getRandomlocations(max){
     }
     return(locationList);
 }
+
 function cleargamePanel(){
     document.getElementById('leftside').innerHTML='';
     document.getElementById('rightside').innerHTML='';
 }
 function  fillGamepanel(){
     var imgs = player1.createimageelements();
-    imgs.map((img) =>{
-        document.getElementById('leftside').appendChild(img);
-    })
-    imgs = player2.createimageelements();
-    imgs.map((img) =>{
+    imgs.map((img,index) =>{
         document.getElementById('rightside').appendChild(img);
+        if(index>0){
+            let imgelment = document.createElement('img');
+            imgelment.className="face";
+            imgelment.src = img.src;
+            imgelment.style.top =img.style.top;
+            imgelment.style.left =img.style.left;
+            imgelment.dataset.id =img.dataset; 
+            imgelment.id = img.id;
+            document.getElementById('leftside').appendChild(imgelment);
+        }
     })
 }
 
@@ -127,8 +119,8 @@ function  fillGamepanel(){
 
 
 function endturn(){
-    player1.switchturn();
-    player2.switchturn();
+    //player1.switchturn();
+    document.getElementById('gamePanel').removeEventListener('click', player1.OnfaceClickhandler);
     _turn_ +=1 ;
 
     if(_turn_ > _maxturns_){
@@ -143,18 +135,10 @@ function endturn(){
 function endgame(){
 
     var scorep1 = player1.score;
-    var scorep2 = player2.score;
-    var message;
-    if(scorep1>scorep2)
-        message = "Left player won"
-    else if(scorep2>scorep1)
-        message = "Right player won"
-    else
-        message = "THAT'S A DRAW, GOOD GAME Y'ALL"
-
+    
     const element = document.createElement("div");
     element.className = 'col-12 text-center d-flex align-items-center justify-content-center';
-    element.innerHTML=`<h1>${message}</h1>`;
+    element.innerHTML=`<h1>Your score is ${scorep1}</h1>`;
     document.getElementById('gamePanel').innerHTML = '';
     document.getElementById('gamePanel').appendChild(element);
     document.getElementById('gamePanel').style=`background:white !important;`;
@@ -167,43 +151,34 @@ function endgame(){
 
 function updateScore(){
    document.getElementById('scoreleft').innerHTML = player1.getScore();
-   document.getElementById('scoreright').innerHTML = player2.getScore();
 }
 
 
 function switchsides(){
    
     if(player1.isMyturn){
-        document.getElementById('leftside').addEventListener('click', player1.OnfaceClickhandler,);
+        document.getElementById('leftside').addEventListener('click', player1.OnfaceClickhandler);
         document.getElementById('rightside').removeEventListener('click',player2.OnfaceClickhandler);
-
-        document.getElementById('leftside').classList.remove('overlay');        
-        document.getElementById('rightside').classList.add('overlay');
     }
     else{
         document.getElementById('leftside').removeEventListener('click',player1.OnfaceClickhandler);
         document.getElementById('rightside').addEventListener('click', player2.OnfaceClickhandler);
-        document.getElementById('leftside').classList.add('overlay');        
-        document.getElementById('rightside').classList.remove('overlay');
 
     }
 }
 
 function startTurn(){
 
-        if(player1.isMyturn){
-            cleargamePanel();
-            chooseMainFace();
-            distributeFaces(_turn_+2);
-            fillGamepanel();
-        }
-        switchsides();
+        cleargamePanel();
+        player1.chooseMainFace();
+        player1.distributeFaces(_turn_+2);
+        fillGamepanel();
+        document.getElementById('gamePanel').addEventListener('click', player1.OnfaceClickhandler);
         updateScore();
 }
 
 function main(){
-    player1 = new Player(1,true,0);
-    player2 = new Player(2,false,0);
+    player1 = new Player(0);
     startTurn();
 }
 
